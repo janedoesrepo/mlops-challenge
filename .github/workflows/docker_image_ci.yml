@@ -1,0 +1,18 @@
+name: Docker Image CI
+
+on:
+
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-image:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    
+    steps:  
+      - name: Build Docker Image
+        uses: docker/build-push-action@v3
+        with:
+          tags: mlops-challenge:latest
+          push: false
